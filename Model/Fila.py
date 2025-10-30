@@ -34,7 +34,7 @@ class Fila:
         self.inicio = self.inicio.proximo
         if self.inicio is None:
             self.fim = None
-        self._tamanho -= 1  # se você mantém contador de tamanho
+        self._tamanho -= 1
         return removido
 
 

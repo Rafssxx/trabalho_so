@@ -7,19 +7,3 @@ class MemoriaVirtual:
     def set_paginas(self):
         for i in range(0,self.tamanho_paginas):
             self.paginas.append(i)
-            
-            
-
-    
-
-        
-        
-        
-        
-        
-        
-        
-        
-    
-        
-        

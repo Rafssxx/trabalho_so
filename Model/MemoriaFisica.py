@@ -4,7 +4,7 @@ from Model.Fila import Fila
 class MemoriaFisica:
     def __init__(self, tamanho_molduras):
         self.molduras = Fila()
-        self.tamanho_molduras = tamanho_molduras  # capacidade total
+        self.tamanho_molduras = tamanho_molduras
 
     def get_capacidade_total(self):
         """Retorna a capacidade máxima de molduras."""
@@ -14,7 +14,6 @@ class MemoriaFisica:
         """Retorna quantas molduras estão atualmente ocupadas."""
         return len(self.molduras)
 
-    # Novos métodos para encapsular operações sobre as molduras
     def contem(self, pagina):
         """Verifica se a página já está presente na memória física."""
         atual = self.molduras.inicio

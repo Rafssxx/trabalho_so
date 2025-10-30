@@ -14,11 +14,10 @@ def simular(input_paginas, input_molduras, acessos):
     resultados = []
     falhas = 0
 
-    # Itera acessos usando a interface de MemoriaFisica (encapsulada)
     for idx, acesso in enumerate(acessos, start=1):
         acao = ""
 
-        # Verifica HIT usando método encapsulado
+        # Verifica HIT
         if memoria_fisica.contem(acesso):
             acao = "✅ HIT"
         else:
@@ -34,7 +33,6 @@ def simular(input_paginas, input_molduras, acessos):
 
         # Captura estado da memória física (lista em ordem FIFO)
         memoria_atual = [str(x) for x in memoria_fisica.listar_molduras()]
-        # Completa com '-' para visualização
         while len(memoria_atual) < input_molduras:
             memoria_atual.append('-')
 
@@ -49,7 +47,7 @@ def simular(input_paginas, input_molduras, acessos):
             "fila_fifo": f"[{', '.join(fila_fifo_exibicao)}]"
         })
 
-    # Impressão usando rich.Table
+    # Impressão
     table = Table(show_header=True, header_style="bold magenta")
     table.add_column("Passo", justify="right")
     table.add_column("Acesso", justify="center")
@@ -67,7 +65,6 @@ def simular(input_paginas, input_molduras, acessos):
 def main():
     console.print("=== SIMULADOR DE GERENCIAMENTO DE MEMÓRIA ===")
 
-    # Leitura e validação de entradas
     try:
         input_paginas = int(Prompt.ask("Digite o número de páginas da memória virtual"))
         input_molduras = int(Prompt.ask("Digite o número de molduras da memória física"))
@@ -90,7 +87,6 @@ def main():
         console.print("[red]Nenhum acesso informado.[/red]")
         return
 
-    # Valida se acessos estão dentro do intervalo de páginas válidas
     invalidos = [a for a in acessos_lista if a < 0 or a >= input_paginas]
     if invalidos:
         console.print(f"[red]Acessos inválidos (fora do intervalo 0..{input_paginas-1}): {invalidos}[/red]")
