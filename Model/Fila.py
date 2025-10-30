@@ -16,17 +16,6 @@ class Fila:
         self.fim = novo
         self._tamanho += 1
 
-    def pop(self):
-        """ método para remover elemento da fila"""
-        if self._tamanho > 0:
-            elemento = self.inicio
-            self.inicio = self.inicio.get_proximo()
-            self._tamanho -= 1
-            return elemento
-        raise IndexError("Fila está vazia")
-
-    
-    
     def pop_inicio(self):
         if self.inicio is None:
             raise IndexError("Lista vazia")
@@ -37,7 +26,14 @@ class Fila:
         self._tamanho -= 1
         return removido
 
-
+    def pop(self):
+        """ método para remover elemento da fila"""
+        if self._tamanho > 0:
+            elemento = self.inicio
+            self.inicio = self.inicio.get_proximo()
+            self._tamanho -= 1
+            return elemento
+        raise IndexError("Fila está vazia")
 
     def peek(self):
         if self._tamanho > 0:
