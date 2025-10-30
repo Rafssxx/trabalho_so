@@ -4,7 +4,7 @@ from Model.MemoriaVirtual import MemoriaVirtual
 from main import simular
 
 
-def test_simular_outputs_expected(capsys):
+def test_simular_saidas_esperadas(capsys):
     # Cenário simples: 3 páginas (0..2), 2 molduras, acessos com hits e falhas
     acessos = [0, 1, 0, 2]
     simular(3, 2, acessos)
